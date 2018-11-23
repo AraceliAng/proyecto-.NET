@@ -1,0 +1,129 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="App_Themes/Tema1/estilos.css" rel="stylesheet" />
+    <style type="text/css">
+    
+            .auto-style2 {
+            width: 1%;
+        }
+
+    </style>
+    <link href="css/shtGeneral.css" rel="stylesheet" type="text/css" />
+    <link href="css/sthMenu.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="margin:0 auto;">
+        <!-- inicio del diseño de la pagina maestra-->
+        <table width="100%" >
+            <tr>
+                <td colspan="2" style="background-color:#F5DCA9">
+                    <table width="100%">
+                       <tr>
+                            <td align="left" class="auto-style2">
+                                <asp:Image ID="Image1" runat="server" CssClass="imgTitulo" ImageUrl="~/Imagenes/nov.png" Height="92px" Width="210px" />
+                            </td>
+                       
+                            <td width="100%" align="center">
+                                <br />
+                                <asp:Label ID="Label1" runat="server" Text="NOVITAS" CssClass="fontTitulo" ForeColor="Black"></asp:Label>
+                                <br />
+                                <asp:Label ID="Label4" runat="server" Text="LA MODA A TU ALCANCE" CssClass="fontitulo2" ForeColor="Black"></asp:Label>
+                                <br />
+                                  <asp:Label ID="Label5" runat="server" Text="." Font-Bold="True" 
+            Font-Names="DFKaiSho-SB" ForeColor="Black"></asp:Label>
+                                <br />
+                                <asp:Label ID="Label2" runat="server" Text="." Font-Bold="True" 
+            Font-Names="DFKaiSho-SB" ForeColor="Black"></asp:Label>
+                                <br />
+                                                                
+                                
+                            </td>
+                       </tr>     
+                    </table>
+                    
+   
+                    <!---menú--->
+
+                   <tr>
+                <td colspan="3" style="background:#FFBF00">
+                    <nav>
+                        <!--ul:genera la lista de opciones del menú-->
+                        <ul class="nav">
+                            <!--li:genera las secciones u opciones del menú-->
+                            <li ><a href="Default.aspx" style="color: #993300" >&nbsp;Inicio</a></li>
+                            <li><a href="#" style="color: #993300">Nosotros</a>
+                                <!--se generan las opciones de catálogos-->
+                                <ul>  
+                                         
+                                    <li>
+                                        <a href="dflClientes.aspx" >Misión</a>
+                                        <li><a href="#">Visión</a></li>
+                                    <li><a href="#">Objetivos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"style="color: #993300">Catálogo</a>
+                                <ul>                                    
+                                    <li><a href="dflClientes.aspx">Porcelana</a></li>
+                                    <li><a href="#">Peluches</a></li>
+                                    <li><a href="#">Joyeria</a></li>
+                                    <li><a href="#">Bolsos y Mochilas</a></li>
+                                </ul>
+                            </li>                 
+                            <li><a href="#" style="color: #993300">Acerca de...</a></li>
+
+                            <li><a href="sesion.aspx" style="color: #993300">Iniciar Sesión</a></li>
+                            
+                        </ul>
+                        
+                    </nav>
+                </td>
+            </tr>
+       
+
+            <tr>
+                <td width="80%">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                        <p align="center">
+                            Bienvenido a la página de novitas
+                        </p>
+                    </asp:ContentPlaceHolder>
+                    <br />
+
+                </td>
+            </tr>
+
+          
+         <table width="100%" style="background-color: #2B8068">
+                        <tr>
+
+                            <td wdth="25%" align="left" style="background-color: #2B8068">
+                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="fontPie2">Derechos reservados</asp:LinkButton>
+                                 &nbsp;&nbsp;
+                                 <asp:LinkButton ID="LinkButton2" runat="server" CssClass="fontPie2">Aviso de privacidad</asp:LinkButton>
+                            </td>
+                          
+                            <td wdth="25%" align="middle" style="background-color:#2B8068">
+                                <asp:ImageButton ID="ImageButton1" runat="server"  ImageUrl="~/Imagenes/Instagram-Logo.png"  PostBackUrl="https://www.instagram.com/?hl=es-la" CssClass="imgPie" />
+                                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Imagenes/3a94649bfc1d139d24f8ce15b36b35c7.png" PostBackUrl="https://es-la.facebook.com/" CssClass="imgPie" />
+                                <asp:ImageButton ID="ImageButton3" runat="server"  ImageUrl="~/Imagenes/twitter-icon-circle-black-logo-35827D553B-seeklogo.com.png" PostBackUrl="https://twitter.com/?lang=es" CssClass="imgPie" />
+                            </td>
+                        </tr>
+                    </table>
+
+        </table>
+    </div>
+    </form>
+</body>
+</html>

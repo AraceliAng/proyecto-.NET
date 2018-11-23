@@ -1,0 +1,45 @@
+﻿.fontTitulo{
+    font-family:Arial;
+    font-size:xx-large;
+    color:whitesmoke;
+    font-style:initial;
+}
+
+.fontitulo2{
+    font-family:Arial;
+    font-size:small;
+    color:white;
+    font-style:initial;
+}
+
+.fontlinkbutton{
+    font-family:'Arial';
+    font-size:large;
+    color:white;
+    font-style:initial;
+}
+
+.fontPie2{
+    font-family:Verdana,Arial,Tahoma;
+    font-size:smaller;
+    color:white;
+    font-style:normal;
+}
+
+.imgPie{
+    width:30px;
+    height:30px;
+}
+
+.imgTitulo{
+   width:210px;
+   height:92px;
+
+}
+
+.linkBtnmenu{
+    font-family:Verdana,Arial,Tahoma;
+    font-size:small;
+    color:white;
+    font-style:normal;
+}
