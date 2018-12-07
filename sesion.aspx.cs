@@ -24,7 +24,7 @@ public partial class Default2 : System.Web.UI.Page
 
         else
         {
-            Response.Write("<Script languaje='javasccript'>alert ('No se ha autorizado tu acceso');</script>");
+            Response.Write("<Script languaje='javasccript'>alert ('Verifica tus datos');</script>");
 
         }
     }

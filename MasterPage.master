@@ -42,10 +42,10 @@
                                 <asp:Label ID="Label4" runat="server" Text="LA MODA A TU ALCANCE" CssClass="fontitulo2" ForeColor="Black"></asp:Label>
                                 <br />
                                   <asp:Label ID="Label5" runat="server" Text="." Font-Bold="True" 
-            Font-Names="DFKaiSho-SB" ForeColor="Black"></asp:Label>
-                                <br />
+            Font-Names="DFKaiSho-SB" ForeColor="Black"></asp:Label><br>
                                 <asp:Label ID="Label2" runat="server" Text="." Font-Bold="True" 
             Font-Names="DFKaiSho-SB" ForeColor="Black"></asp:Label>
+                                <br />
                                 <br />
                                                                 
                                 
@@ -63,30 +63,27 @@
                         <ul class="nav">
                             <!--li:genera las secciones u opciones del menú-->
                             <li ><a href="Default.aspx" style="color: #993300" >&nbsp;Inicio</a></li>
-                            <li><a href="#" style="color: #993300">Nosotros</a>
+                            <li><a href=" " style="color: #993300">Nosotros</a>
                                 <!--se generan las opciones de catálogos-->
                                 <ul>  
-                                         
-                                    <li>
-                                        <a href="dflClientes.aspx" >Misión</a>
-                                        <li><a href="#">Visión</a></li>
-                                    <li><a href="#">Objetivos</a></li>
+                                         <li><a href="Mision.aspx" style="color: #993300">Misión</a>
+                                        <li><a href="Vision.aspx" style="color: #993300">Visión</a></li>
+                                    <li><a href="Objetivos.aspx" style="color: #993300">Objetivos</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="#"style="color: #993300">Catálogo</a>
-                                <ul>                                    
-                                    <li><a href="dflClientes.aspx">Porcelana</a></li>
-                                    <li><a href="#">Peluches</a></li>
-                                    <li><a href="#">Joyeria</a></li>
-                                    <li><a href="#">Bolsos y Mochilas</a></li>
+                            
+                            <li><a href="cliente.aspx" style="color: #993300">Catálogo</a>
+                                 <ul>
+                                    
+                                  <li><a href="porcelana.aspx" style="color: #993300">Porcelana</a></li>
+                                    <li><a href="peluche.aspx" style="color: #993300">Peluches</a></li>
+                                    <li><a href="joyeria.aspx"style="color: #993300">Joyeria</a></li>
+                                    <li><a href="mochila.aspx" style="color: #993300">Bolsos y Mochilas</a></li>
                                 </ul>
                             </li>                 
-                            <li><a href="#" style="color: #993300">Acerca de...</a></li>
+                            <li><a href="nosotros.aspx" style="color: #993300">Acerca de...</a></li>
 
                             <li><a href="sesion.aspx" style="color: #993300">Iniciar Sesión</a></li>
-                            
                         </ul>
-                        
                     </nav>
                 </td>
             </tr>
@@ -105,19 +102,18 @@
             </tr>
 
           
-         <table width="100%" style="background-color: #2B8068">
+         <table width="100%" style="background-color:#F5DCA9">
                         <tr>
 
-                            <td wdth="25%" align="left" style="background-color: #2B8068">
-                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="fontPie2">Derechos reservados</asp:LinkButton>
-                                 &nbsp;&nbsp;
-                                 <asp:LinkButton ID="LinkButton2" runat="server" CssClass="fontPie2">Aviso de privacidad</asp:LinkButton>
+                            <td wdth="25%" align="left" >   
+                                <a href="aviso_privacidad.pdf"  target="_blank">Derechos reservados</a> &nbsp;&nbsp;                                
+                                <a href="aviso_privacidad.pdf"   target="_blank">Aviso de privacidad</a> 
                             </td>
                           
-                            <td wdth="25%" align="middle" style="background-color:#2B8068">
-                                <asp:ImageButton ID="ImageButton1" runat="server"  ImageUrl="~/Imagenes/Instagram-Logo.png"  PostBackUrl="https://www.instagram.com/?hl=es-la" CssClass="imgPie" />
-                                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Imagenes/3a94649bfc1d139d24f8ce15b36b35c7.png" PostBackUrl="https://es-la.facebook.com/" CssClass="imgPie" />
-                                <asp:ImageButton ID="ImageButton3" runat="server"  ImageUrl="~/Imagenes/twitter-icon-circle-black-logo-35827D553B-seeklogo.com.png" PostBackUrl="https://twitter.com/?lang=es" CssClass="imgPie" />
+                            <td wdth="25%" align="middle" >
+                                <asp:ImageButton ID="ImageButton1" runat="server"  ImageUrl="~/imagenes/Instagram-Logo.png"  PostBackUrl="https://www.instagram.com/?hl=es-la" CssClass="imgPie" />
+                                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/imagenes/3a94649bfc1d139d24f8ce15b36b35c7.png" PostBackUrl="https://es-la.facebook.com/" CssClass="imgPie" />
+                                <asp:ImageButton ID="ImageButton3" runat="server"  ImageUrl="~/imagenes/twitter-icon-circle-black-logo-35827D553B-seeklogo.com.png" PostBackUrl="https://twitter.com/?lang=es" CssClass="imgPie" />
                             </td>
                         </tr>
                     </table>

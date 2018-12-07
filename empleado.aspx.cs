@@ -16,19 +16,19 @@ public partial class _Default : System.Web.UI.Page
         if (Request["op"] == null && Request["cve"] == null)
         {
             // NO SE HAN ENVIADO LAS VARIABLES
-            Response.Write("<script language='javascript'>alert('No se han enviado variables');</script>");
+            //Response.Write("<script language='javascript'>alert('No se han enviado variables');</script>");
         }
         else
         {
             // SI SE RECIBIERON LAS VARIABLES
-            Response.Write("<script language='javascript'>alert('" + Request["op"].ToString() + "-" + Request["cve"].ToString() + " ');</script>");
+            //Response.Write("<script language='javascript'>alert('" + Request["op"].ToString() + "-" + Request["cve"].ToString() + " ');</script>");
             // VALIDACIÓN DE LAS ACCIONES A REALIZAR
             if (Request["op"].ToString() == "1")
             {
                 //CONSULTAR LOS DATOS DEL EMPLEADO Y MOSTRARLOS
                 SqlConnection cnn = new SqlConnection(Application["cnnConexionProyecto"].ToString());
-                string strSQL = " Select pro_cve_producto, pro_nombre, pro_categoria, pro_precio, pro_existencia ";
-                strSQL = strSQL + " From producto Where pro_cve_producto=" + Request["cve"].ToString();
+                string strSQL = " Select prod_cve_producto, prod_nombre, prod_categoria, prod_precio, prod_existencia ";
+                strSQL = strSQL + " From producto Where prod_cve_producto=" + Request["cve"].ToString();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cnn;
                 cmd.CommandText = strSQL;
@@ -75,14 +75,30 @@ public partial class _Default : System.Web.UI.Page
         try
         {
             clspro obj = new clspro(Application["cnnConexionProyecto"].ToString());
-            if (obj.agregar(TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text) == true)
+            //si hay una archivo.
+            if (FileUpload1.HasFile)
             {
-                Response.Write("<script language='javascript'>alert('Producto registrado.');</script>");
-                Response.Write("<script language='javascript'>document.location.href='acceso.aspx';</script>");
+                if (FileUpload1.FileName.Length <= 50)
+                {
+                    //se obtiene la extension y el tamaño para delimitar si es necesario
+                    String fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+                    String ruta = "imagenes/fotos/";
+                    FileUpload1.SaveAs(Server.MapPath(ruta + FileUpload1.FileName.ToString()));
+
+                    if (obj.agregar(TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, ruta + FileUpload1.FileName) == true)
+                    {
+                        Response.Write("<script language='javascript'>alert('Producto registrado.');</script>");
+                        Response.Write("<script language='javascript'>document.location.href='empleado.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<Script languaje='javasccript'>alert ('No se insertaron los datos, verifique que la imagen tenga un nombre corto');</script>");
+                    }
+                }
             }
             else
             {
-                Response.Write("<Script languaje='javasccript'>alert ('No se insertaron los datos');</script>");
+                Response.Write("<Script languaje='javasccript'>alert ('No ha agregado imagen para el producto');</script>");
             }
         }
         catch
@@ -100,7 +116,7 @@ public partial class _Default : System.Web.UI.Page
             if (obj.borrar(TextBox1.Text) == true)
             {
                 Response.Write("<script language='javascript'>alert('Producto eliminado.');</script>");
-                Response.Write("<script language='javascript'>document.location.href='acceso.aspx';</script>");
+                Response.Write("<script language='javascript'>document.location.href='empleado.aspx';</script>");
             }
             else
             {
@@ -118,15 +134,25 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            clspro obj = new clspro(Application["cnnConexionProyecto"].ToString());
-            if (obj.modificar(TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox1.Text) == true)
+            if (FileUpload1.HasFile)
             {
-                Response.Write("<script language='javascript'>alert('Producto modificado.');</script>");
-                Response.Write("<script language='javascript'>document.location.href='acceso.aspx';</script>");
-            }
-            else
-            {
-                Response.Write("<Script languaje='javasccript'>alert ('No se modificó el producto');</script>");
+                if (FileUpload1.FileName.Length <= 50)
+                {
+                    //se obtiene la extension y el tamaño para delimitar si es necesario
+                    String fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+                    String ruta = "imagenes/fotos/";
+                    FileUpload1.SaveAs(Server.MapPath(ruta + FileUpload1.FileName.ToString()));
+                    clspro obj = new clspro(Application["cnnConexionProyecto"].ToString());
+                    if (obj.modificar(TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox1.Text,ruta + FileUpload1.FileName) == true)
+                    {
+                        Response.Write("<script language='javascript'>alert('Producto modificado.');</script>");
+                        Response.Write("<script language='javascript'>document.location.href='empleado.aspx';</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<Script languaje='javasccript'>alert ('No se modificó el producto');</script>");
+                    }
+                }
             }
         }
         catch
@@ -164,7 +190,7 @@ public partial class _Default : System.Web.UI.Page
         try
         {
             SqlConnection cnn = new SqlConnection(Application["cnnConexionProyecto"].ToString());
-            string sql = "select pro_cve_producto, pro_nombre, pro_categoria, pro_precio, pro_existencia from producto WHERE pro_cve_producto='" + TextBox6.Text + "'";
+            string sql = "select prod_cve_producto, prod_nombre, prod_categoria, prod_precio, prod_existencia from producto WHERE prod_cve_producto='" + TextBox6.Text + "'";
             SqlCommand cmd = new SqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
 
@@ -173,11 +199,11 @@ public partial class _Default : System.Web.UI.Page
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                TextBox1.Text = Convert.ToString(reader["pro_cve_producto"]);
-                TextBox2.Text = Convert.ToString(reader["pro_nombre"]);
-                TextBox3.Text = Convert.ToString(reader["pro_categoria"]);
-                TextBox4.Text = Convert.ToString(reader["pro_precio"]);
-                TextBox5.Text = Convert.ToString(reader["pro_existencia"]);
+                TextBox1.Text = Convert.ToString(reader["prod_cve_producto"]);
+                TextBox2.Text = Convert.ToString(reader["prod_nombre"]);
+                TextBox3.Text = Convert.ToString(reader["prod_categoria"]);
+                TextBox4.Text = Convert.ToString(reader["prod_precio"]);
+                TextBox5.Text = Convert.ToString(reader["prod_existencia"]);
             }
             cnn.Close();
         }
@@ -202,4 +228,35 @@ public partial class _Default : System.Web.UI.Page
     {
 
     }
+
+    //-------------------------------------------------imagen------------------------------------------------------------------
+   /* protected void Button8_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            SqlConnection cnn = new SqlConnection(Application["cnnConexionProyecto"].ToString());
+
+            string sql = "select prod_foto from producto WHERE prod_cve_producto='" + TextBox6.Text + "'";
+            SqlCommand cmd = new SqlCommand(sql, cnn);
+            cmd.CommandType = CommandType.Text;
+
+            cnn.Open();
+            int resultado = cmd.ExecuteNonQuery();
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (FileUpload1.HasFile)
+            {
+                //si hay una archivo.
+                string nombreArchivo = FileUpload1.FileName;
+                string ruta = "~/Fotos/" + nombreArchivo;
+                FileUpload1.SaveAs(Server.MapPath(ruta));
+
+                Label1.Text = "Se guardó la imagen. y su ruta es" + Environment.NewLine + ruta;
+            }
+            cnn.Close();
+        }
+        catch (SqlException ex)
+        {
+            Response.Write("<script language='javascript'>alert('No se encontro el producto');</script>");
+        }       
+    }*/
 }

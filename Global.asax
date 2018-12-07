@@ -6,7 +6,6 @@
     {
         // Código que se ejecuta al iniciarse la aplicación
         Application["cnnConexionProyecto"] = ConfigurationManager.ConnectionStrings["cnnConexionProyecto"].ConnectionString.ToString();
-        Application["strEmpresa"] = "";
     }
     
     void Application_End(object sender, EventArgs e) 
@@ -24,9 +23,9 @@
     void Session_Start(object sender, EventArgs e) 
     {
         // Código que se ejecuta al iniciarse una nueva sesión
-        Session["nomUsuario"] = " ";
-        Session["nomRol"] = " ";
-        Session["nomCliente"] = " ";
+        Session["nomUsuario"] = "[no autenticado]";
+        Session["nomRol"] = "[no autenticado]";
+        Session["nomCliente"] = "[no autenticado]";
 
     }
 

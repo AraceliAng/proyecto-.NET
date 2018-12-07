@@ -9,9 +9,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Label5.Text = Session["nomUsuario"].ToString() + "  " + Session["nomRol"].ToString();
-        Label2.Text = Session["nomCliente"].ToString();
-
+        Label5.Text = Session["nomUsuario"].ToString() + " " + Session["nomRol"].ToString();
+        Label2.Text = Session["nomCliente"].ToString() + " ";
     }
     protected void LinkButton6_Click(object sender, EventArgs e)
     {

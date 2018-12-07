@@ -29,16 +29,17 @@
 			
 			.nav li a {
 				background-color:#FFBF00;
-				color:#ffffff;
+				color:#000000;
 				text-decoration:none;
 				padding:10px 12px;
 				display:block;
     width: 131px;
     height: 21px;
 }
+           
 			
 			.nav li a:hover {
-				background-color:#8eeac2 ;
+				background-color:#fcfa90;
 			}
 			
 			.nav li ul {

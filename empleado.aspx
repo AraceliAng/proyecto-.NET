@@ -116,10 +116,19 @@
     </tr>
 
     <tr>
-    <td class="auto-style6" align="left">    </td>
-    <td class="auto-style5" align="left">    </td>
+    <td class="auto-style6" align="left">    <asp:Label ID="Label7" runat="server" Text="Foto:" Font-Bold="False" 
+            Font-Names="Arial"></asp:Label></td>
+    <td class="auto-style5" align="left">  
+        <asp:FileUpload ID="FileUpload1" runat="server" />
+        </td>
     <td class="auto-style4">                                </td>
     </tr>
+
+        <tr>
+            <td class="auto-style6" align="left">  
+            <td class="auto-style5" align="left">  </td>
+            <td class="auto-style4">                                </td>
+        </tr>
 
     <tr>
     <td class="auto-style6" align="left">    </td>
@@ -138,12 +147,12 @@
             PageSize="5" AutoGenerateColumns="False" ForeColor="Black">
             <AlternatingRowStyle Font-Names="Arial Rounded MT Bold" Font-Size="Small" />
             <Columns>
-                <asp:HyperLinkField DataNavigateUrlFields="pro_cve_producto" DataNavigateUrlFormatString="empleado.aspx?op=1&amp;cve={0}" DataTextField="PRO_CVE_PRODUCTO" HeaderText="Clave" />
-                <asp:BoundField DataField="pro_nombre" HeaderText="Nombre" />
-                <asp:BoundField DataField="pro_categoria" HeaderText="Categoría" />
-                <asp:BoundField DataField="pro_precio" HeaderText="Precio" />
-                <asp:BoundField DataField="pro_existencia" HeaderText="Existencia" />
-                <asp:ImageField DataImageUrlField="pro_foto" HeaderText="Foto">
+                <asp:HyperLinkField DataNavigateUrlFields="prod_cve_producto" DataNavigateUrlFormatString="empleado.aspx?op=1&amp;cve={0}" DataTextField="PROD_CVE_PRODUCTO" HeaderText="Clave" />
+                <asp:BoundField DataField="prod_nombre" HeaderText="Nombre" />
+                <asp:BoundField DataField="prod_categoria" HeaderText="Categoría" />
+                <asp:BoundField DataField="prod_precio" HeaderText="Precio" />
+                <asp:BoundField DataField="prod_existencia" HeaderText="Existencia" />
+                <asp:ImageField DataImageUrlField="prod_foto" HeaderText="Foto">
                     <ControlStyle Height="95px" Width="80px" />
                 </asp:ImageField>
             </Columns>
@@ -152,6 +161,7 @@
             <PagerStyle Font-Names="Arial" />
             <RowStyle Font-Names="Arial Rounded MT Bold" Font-Size="Small" />
         </asp:GridView>
+        <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Cerrar Sesión" />
     </td>
     </tr>
                 
@@ -159,7 +169,6 @@
     </table>
 
     </center>
-        <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Cerrar Sesión" />
     </div>
    
 </body>

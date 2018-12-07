@@ -10,7 +10,15 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table border="1">
+    <table align="center">
+        <tr><td></td><td></td>
+            <td style="margin-left: 40px">
+                <asp:Label ID="Label3" align="center" Font-Names="fontTitulo" runat="server" Text="Debes iniciar sesión para ver el catálogo o en su defecto registrarte"></asp:Label></td>
+            </td>
+        </tr>
+        <td>
+
+        </td>
             <tr>
                 <td></td>
                 <td><asp:Label ID="Label1" runat="server" Text="REGISTRO"></asp:Label></td>
@@ -46,7 +54,7 @@
                 <td>&nbsp;</td>                
                 <td>PASSWORD</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox10" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -72,7 +80,7 @@
         <tr>
                <td>FECHA</td>
                 <td>
-                    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox6" runat="server" TextMode="Date"></asp:TextBox>
                </td>
                 <td>&nbsp;</td>                
                 <td></td>
@@ -90,7 +98,7 @@
       <tr>
                <td>PASSWORD</td>
                 <td>
-                    <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox8" runat="server" TextMode="Password"></asp:TextBox>
                </td>
                 <td>
                     <asp:Button ID="Button1" runat="server" Text="REGISTRAR" OnClick="Button1_Click" />
